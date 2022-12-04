@@ -37,7 +37,7 @@ app.post("/ques", async(req,res)=>{
     // })
 })
 
-app.get("/ques_ans",async(req,res)=>{
+app.get("/ques",async(req,res)=>{
     try{
        const questiondata=await Questions.find();
        res.send(questiondata)
