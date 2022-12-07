@@ -1,35 +1,15 @@
 const mongoose=require("mongoose");
-
+const reqString = {
+        type: String,
+        required: true,
+      };
 const que_schema=new mongoose.Schema({
-    Ques:{
-        type:String,
-        required:true
-    },
-    O1:{
-        type:String,
-        required:true,
-        unique:true,
-       },
-    O2:{
-        type:String,
-        required:true,
-        unique:true,
-       }, 
-    O3:{
-        type:String,
-        required:true,
-        unique:true,
-       },     
-    O4:{
-        type:String,
-        required:true,
-        unique:true,
-       },  
-    correct:{
-        type:String,
-        required:true
-       }
-})
+          question : reqString,
+          answers : [{
+              answerText:reqString,
+              isCorrect:reqString
+            }],
+      });
 
 const Questions = mongoose.model("Ques",que_schema);
 module.exports=Questions;
